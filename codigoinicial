@@ -1,0 +1,29 @@
+from random import randint  # Importa a função randint do módulo random para gerar números aleatórios
+
+# Gera um número aleatório entre 0 e 10 e o armazena na variável computador
+computador = randint(0, 10)
+print(computador)  # Exibe o número gerado (para fins de teste, pode ser removido em uma versão final)
+
+acertou = False  # Inicializa a variável que indica se o jogador acertou
+palpite = 0  # Inicializa o contador de palpites
+cont = 0  # Esta variável não está sendo utilizada, pode ser removida
+
+# Loop que continua até que o jogador acerte o número
+while not acertou:
+    # Solicita ao jogador que insira um palpite
+    jogador = int(input('{}º palpite: '.format(palpite + 1)))  # Exibe o número do palpite atual
+    palpite += 1  # Incrementa o contador de palpites
+
+    # Verifica se o palpite do jogador está correto
+    if jogador == computador:
+        acertou = True  # Se o jogador acertou, muda a variável acertou para True
+    else:
+        # Se o palpite for menor que o número do computador
+        if jogador < computador:
+            print('Mais, tente outra vez')  # Informa que o número é maior
+        # Se o palpite for maior que o número do computador
+        elif jogador > computador:
+            print('Menos, tente outra vez')  # Informa que o número é menor
+
+# Exibe uma mensagem informando quantos palpites foram necessários para acertar
+print('Acertou no {}º palpite'.format(palpite))
